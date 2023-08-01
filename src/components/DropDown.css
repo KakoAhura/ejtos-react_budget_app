@@ -1,0 +1,25 @@
+/* styles.css */
+.DropDown {
+    background-color: #a8e08e;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    width: 200px;
+    height: 58px;
+    font-size: 16px;
+  }
+  
+  .DropDown:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+  
+  .DropDown:focus {
+    outline: none;
+    box-shadow: 0 0 5px #2196f3;
+  }
+  .currency-label {
+    margin-left: 0.6rem !important; /* Adjust the margin as needed */
+    margin-right: 0.3rem !important;
+  }

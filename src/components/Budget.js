@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-  const { budget, dispatch, expenses } = useContext(AppContext);
+  const { budget, dispatch, expenses,currency } = useContext(AppContext);
   const [newBudget, setNewBudget] = useState(budget);
 
   const totalExpenses = expenses.reduce((total, item) => {
@@ -15,10 +15,10 @@ const Budget = () => {
 
   const handleBlur = () => {
     if (newBudget < totalExpenses) {
-        alert("You can't reduce the Budget below what you have already spent");
+        alert(`You can't reduce the Budget below what you have already spent (${currency}${totalExpenses})`);
         setNewBudget(budget); 
     } else if (newBudget > 20000) {
-        alert("The value cannot exceed £20000");
+        alert(`The value cannot exceed (${currency}) 20000`);
         setNewBudget(budget); // Reset newBudget to the current budget value
       } else {
         dispatch({ type: 'SET_BUDGET', payload: newBudget });
@@ -33,7 +33,7 @@ const Budget = () => {
 
   return (
     <div className='alert alert-secondary'>
-      <span>Budget: £</span>
+      <span>Budget: {currency}</span>
       <input
         required
         type="number"
